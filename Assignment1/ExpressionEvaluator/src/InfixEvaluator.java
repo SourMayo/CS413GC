@@ -1,10 +1,28 @@
+/*************************************************
+ File: InfixEvaluator.java
+ By: Geoart Corral
+ Date: 02.19.24
+
+ Compile: javac InfixEvaluator.java
+ Usage: Run through an IDE
+ System: All
+
+ Description: This program takes in 4 integers from the user
+    and evaluates predefined postfix and infix expressions
+    using the inputted values. The results are displayed.
+ *************************************************/
+
 import java.util.Stack;
 
 public class InfixEvaluator {
 
+    /********************************************
     public static void evaluateInfix(String str) {
-        Stack<Character> operatorStack = new Stack<Character>();
-        Stack<Integer> valueStack = new Stack<Integer>();
+    solves and prints (a+b)*(c+d) with user given values
+    ********************************************/
+    public static void evaluateInfix(String str) {
+        Stack<Character> operatorStack = new Stack<>();
+        Stack<Integer> valueStack = new Stack<>();
 
         // To use as parameters for operatorSolve and hold result
         int value1;

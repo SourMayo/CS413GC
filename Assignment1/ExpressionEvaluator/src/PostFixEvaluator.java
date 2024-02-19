@@ -1,10 +1,27 @@
+/*************************************************
+ File: PostFixEvaluator.java
+ By: Geoart Corral
+ Date: 02.19.24
+
+ Compile: javac PostFixEvaluator.java
+ Usage: Run through an IDE
+ System: All
+
+ Description: This program takes in 4 integers from the user
+    and evaluates predefined postfix and infix expressions
+    using the inputted values. The results are displayed.
+ *************************************************/
+
 import java.util.Stack;
 
 public class PostFixEvaluator {
 
+    /********************************************
+    public static void evaluateInfix(String str) {
+    solves and prints ac-b^d+ with user given values
+    ********************************************/
     public static void evaluatePostfix(String str) {
-        Stack<Character> operatorStack = new Stack<Character>();
-        Stack<Integer> valueStack = new Stack<Integer>();
+        Stack<Integer> valueStack = new Stack<>();
 
         // To use as parameters for operatorSolve and hold result
         int value1;
