@@ -70,7 +70,7 @@ public class AList<E> implements ListInterface<E>
       return true;
    } // end add
    
-   public E remove(int givenPosition)
+   public Comparable remove(int givenPosition)
    {
       checkIntegrity();
       if ((givenPosition >= 1) && (givenPosition <= numberOfEntries))
@@ -84,7 +84,7 @@ public class AList<E> implements ListInterface<E>
             removeGap(givenPosition);
          list[numberOfEntries] = null;
          numberOfEntries--;
-         return result;                  // Return reference to removed entry
+         return 1; //FIXME                  // Return reference to removed entry
       }
       else
          throw new IndexOutOfBoundsException("Illegal position given to remove operation.");

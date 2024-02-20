@@ -38,7 +38,7 @@ public class MyLList < E extends Comparable < ? super E> > implements ListInterf
         if(!integrityOK)
             throw new SecurityException("Corrupt Linked List.. cannot continue..");
         
-    }// end checkIntegorty
+    }// end check Integrity
         
     public boolean isEmpty() {
 

@@ -9,6 +9,7 @@ import java.util.*;
    @author Frank M. Carrano
    @version 5.0
  */
+
 public class ArrayListWithIterator<E> extends AList<E> implements ListWithIteratorInterface<E>
 {
 	public ArrayListWithIterator()
