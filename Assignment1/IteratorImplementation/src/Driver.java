@@ -1,16 +1,32 @@
+/*************************************************
+ File: Driver.java
+ By: Geoart Corral, Karun Mehta
+ Date: 02.21.24
+
+ Compile: javac Driver.java
+ Usage: Run through an IDE
+ System: All
+
+ Description: This program is a custom linked list
+    iterator that prints all objects in the list.
+    It adapts starter code provided by Karun Mehta.
+ *************************************************/
+
 package listtest;
 
 import java.util.*;
-/** 
-   A driver that demonstrates the revised class ArrayListWithIterator.
+/**
+   A driver that demonstrates the class LinkedListWithIterator.
+   Adapted from starter code provided.
  */
 public class Driver  {
-    
+
     public static void main (String args[]) {
-            
+
         System.out.println("Create a list: ");
 
-        ListWithIteratorInterface<String> myList = new ArrayListWithIterator<>();
+        // Create a linked list of type String
+        MyLList<String> myList = new MyLList<>();
 
         System.out.println("Testing add to end: Add A, B, C, D");
         myList.add("A");
@@ -20,54 +36,33 @@ public class Driver  {
 
         System.out.println("\nUsing ADT list operations hasNext and next:");
 
+        // Iterate and display through a method
         displayList(myList);
 
-
-        Iterator it = myList.getIterator();
-        System.out.println("Execute the iterator's next() again:");
-        try {
-            it.next();		   // Should throw an error
-            System.out.println("Oops... No exception");
-        } catch (NoSuchElementException e) {
-            System.out.println("NoSuchElementException was thrown as expected!");
-        } // end catch
+        // Get an initialized instance of iterator
+        Iterator<String> it = myList.getIterator();
 
         System.out.println("\nBegin iteration again:");
         it = myList.getIterator();
         System.out.println("next() returns " + it.next() + " (should be A)");
-
-        System.out.println("remove() should remove A");
-        it.remove();
-
         System.out.println("next() returns " + it.next() + " (should be B)");
         System.out.println("next() returns " + it.next() + " (should be C)");
+        System.out.println("next() returns " + it.next() + " (should be D)");
 
-        System.out.println("remove() should remove C");
-        it.remove();
-        System.out.println();
-
-        System.out.println("List state after all adds and removes");
-        displayList(myList);
-
-        System.out.println("\nExecute the iterator's remove() again:");
-        try {
-            it.remove();		   // Should throw an error
-            System.out.println("Oops... No exception");
-        } catch (IllegalStateException e) {
-            System.out.println("IllegalStateException was thrown as expected!");
-        } // end catch
-        
+        System.exit(0);
     } // end main
 
-    public static void displayList(ListWithIteratorInterface<String> aList) {
+    public static void displayList(MyLList<String> myLList) {
 
-        System.out.println("The list contains " + aList.getLength() +
-                            " string(s) running through iterator, as follows:");		
+        System.out.println("The list contains " + myLList.getLength() +
+                            " string(s) running through iterator, as follows:");
 
-        Iterator it = aList.getIterator();
+        // Get initialized instance of iterator
+        Iterator<String> itr = myLList.getIterator();
 
-        while(it.hasNext()) {
-            System.out.println(it.next());
+        // Iterate through the string and print
+        while(itr.hasNext()) {
+            System.out.println(itr.next());
         }
 
     }  // end displayList

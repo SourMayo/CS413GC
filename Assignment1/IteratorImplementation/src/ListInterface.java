@@ -1,3 +1,17 @@
+/*************************************************
+ File: ListInterface.java
+ By: Geoart Corral, Karun Mehta
+ Date: 02.21.24
+
+ Compile: javac ListInterface.java
+ Usage: Run through an IDE
+ System: All
+
+ Description: This program is a custom linked list
+ iterator that prints all objects in the list.
+ It adapts starter code provided by Karun Mehta.
+ *************************************************/
+
 package listtest;
 
 /** An interface for the ADT list.
@@ -55,14 +69,14 @@ public interface ListInterface<E>
        @return  A reference to the indicated entry.
        @throws  IndexOutOfBoundsException if either
                 givenPosition < 1 or givenPosition > getLength(). */
-   // FIXME turn to comparable
-   public E getEntry(int givenPosition);
+   public Comparable getEntry(int givenPosition);
    
    /** Retrieves all entries that are in this list in the order in which
        they occur in the list.
        @return  A newly allocated array of all the entries in the list.
                 If the list is empty, the returned array is empty. */
-   
+   public Comparable[] toArray();
+
    /** Sees whether this list contains a given entry.
        @param anEntry  The object that is the desired entry.
        @return  True if the list contains anEntry, or false if not. */

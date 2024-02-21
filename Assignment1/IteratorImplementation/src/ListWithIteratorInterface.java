@@ -1,3 +1,17 @@
+/*************************************************
+ File: ListWithIteratorInterface.java
+ By: Geoart Corral, Karun Mehta
+ Date: 02.21.24
+
+ Compile: javac ListWithIteratorInterface.java
+ Usage: Run through an IDE
+ System: All
+
+ Description: This program is a custom linked list
+ iterator that prints all objects in the list.
+ It adapts starter code provided by Karun Mehta.
+ *************************************************/
+
 package listtest;
 
 import java.util.Iterator;

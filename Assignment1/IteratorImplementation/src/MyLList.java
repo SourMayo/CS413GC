@@ -1,3 +1,17 @@
+/*************************************************
+ File: MyLList.java
+ By: Geoart Corral, Karun Mehta
+ Date: 02.21.24
+
+ Compile: javac MyLList.java
+ Usage: Run through an IDE
+ System: All
+
+ Description: This program is a custom linked list
+ iterator that prints all objects in the list.
+ It adapts starter code provided by Karun Mehta.
+ *************************************************/
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -5,11 +19,13 @@
  */
 package listtest;
 
+import java.util.Iterator;
+
 /**
  *
  * @author kmehta
  */
-public class MyLList < E extends Comparable < ? super E> > implements ListInterface<E> {
+public class MyLList < E extends Comparable < ? super E> > implements ListWithIteratorInterface<E> {
  
     private boolean integrityOK;
     private ListNode firstNode; // reference to first node of the list
@@ -22,7 +38,7 @@ public class MyLList < E extends Comparable < ? super E> > implements ListInterf
     } // end default constructor
 
     // clear list. Set firstNode to NULL
-    public final void clear () {
+    public void clear() {
         
         integrityOK = false;
         
@@ -107,7 +123,7 @@ public class MyLList < E extends Comparable < ? super E> > implements ListInterf
         }
     }
 
-    public E[] toArray() {
+    public Comparable[] toArray() {
 
         if(firstNode == null) return null;
 
@@ -130,7 +146,6 @@ public class MyLList < E extends Comparable < ? super E> > implements ListInterf
 
     }// end toArray
 
-    
     private ListNode getNodeAt(int givenPosition) {
         
         checkIntegrity();
@@ -146,39 +161,38 @@ public class MyLList < E extends Comparable < ? super E> > implements ListInterf
         return currentNode;
     } // end getNodeAt
 
-    public E getEntry(int i) {
+    public Comparable getEntry(int givenPosition) {
         
         Comparable[] arr = this.toArray();
         
         E element = null;
-        if((i > 0) && (i < arr.length)) {
-            element = (E) arr[i - 1];
+        if((givenPosition > 0) && (givenPosition < arr.length)) {
+            element = (E) arr[givenPosition - 1];
         }
 
         return element;
 
     } // end getEntry    
  
-    public E replace(int position, E anEntry) {
+    public E replace(int givenPosition, E newEntry) {
 
         checkIntegrity();
         boolean success = false;
         
-        if (!((position >= 1) && (position <= numberOfEntries))) {
+        if (!((givenPosition >= 1) && (givenPosition <= numberOfEntries))) {
             return null;
         } else {
         
-            ListNode theNode = this.getNodeAt(position - 1);
-            theNode.setData(anEntry);
+            ListNode theNode = this.getNodeAt(givenPosition - 1);
+            theNode.setData(newEntry);
             success = true;
         }
         
-        return anEntry;
+        return newEntry;
 
     } // end replace    
 
-    
-    public E remove(int position) {
+    public Comparable remove(int position) {
 
         checkIntegrity();
         
@@ -231,13 +245,13 @@ public class MyLList < E extends Comparable < ? super E> > implements ListInterf
     
     /** add an existing entry of this list.
        The list size is increased by 1.
-       @param anEntry  The object to be added as a new entry. */      
-    public void add(E anEntry) {
+       @param newEntry  The object to be added as a new entry. */
+    public void add(E newEntry) {
 
         checkIntegrity();
         
         // get new node to hold newEntry
-        ListNode newNode = new ListNode (anEntry);
+        ListNode newNode = new ListNode (newEntry);
 
         // adding to empty list
         if (isEmpty ()) {
@@ -253,22 +267,22 @@ public class MyLList < E extends Comparable < ? super E> > implements ListInterf
         numberOfEntries ++;        
     }
     
-    public boolean add(int insertPosition, E anEntry) {
+    public boolean add(int newPosition, E newEntry) {
         
         ListNode nodeBefore, nodeAfter;
         
         checkIntegrity();
         
         boolean isSuccessful = true;
-        if ((insertPosition >= 1) && (insertPosition <= numberOfEntries + 1)){
+        if ((newPosition >= 1) && (newPosition <= numberOfEntries + 1)){
             // get new node to hold newEntry
-            ListNode newNode = new ListNode (anEntry);
-            if (isEmpty () || (insertPosition == 1)) { // empty or 1st position
+            ListNode newNode = new ListNode (newEntry);
+            if (isEmpty () || (newPosition == 1)) { // empty or 1st position
                 newNode.next = firstNode;
                 firstNode = newNode;
                 lastNode = newNode;
             } else {// not empty and newPosition > 1
-                nodeBefore = getNodeAt (insertPosition - 1);
+                nodeBefore = getNodeAt (newPosition - 1);
                 
                 //if insert point was after last node
                 if(nodeBefore.next == null) {
@@ -306,13 +320,28 @@ public class MyLList < E extends Comparable < ? super E> > implements ListInterf
 
         } 
      }
-    
+
+    // Create an iterator object with the provided LinkedList
+    @Override
+    public LinkedListWithIterator<E> getIterator() {
+        return new LinkedListWithIterator<>(this);
+    }
+
+    @Override
+    public LinkedListWithIterator<E> iterator() {
+        return new LinkedListWithIterator<>(this);
+    }
+
+    public ListNode getFirstNode() {
+        return firstNode;
+    }
 
     
 /** 
  *
  * @author kmehta
- */    
+ */
+
     public class ListNode {
         
         public E data; // entry in queue
@@ -342,7 +371,11 @@ public class MyLList < E extends Comparable < ? super E> > implements ListInterf
         public void setData(E anEntry) {
             this.data = anEntry;
         }
-  
-    } // end QueueNode    
-    
-}// end MyLList
+
+    } // end QueueNode
+
+
+
+} // end MyLList
+
+
