@@ -1,6 +1,6 @@
 /*************************************************
  File: Driver.java
- By: Geoart Corral, Karun Mehta
+ By: Geoart Corral - Starter Code -> Karun Mehta, Frank M. Carrano, Timothy M. Henry
  Date: 02.21.24
 
  Compile: javac Driver.java
@@ -28,6 +28,7 @@ public class Driver  {
         // Create a linked list of type String
         MyLList<String> myList = new MyLList<>();
 
+        // Add elements to iterate through
         System.out.println("Testing add to end: Add A, B, C, D");
         myList.add("A");
         myList.add("B");
@@ -42,6 +43,7 @@ public class Driver  {
         // Get an initialized instance of iterator
         Iterator<String> it = myList.getIterator();
 
+        // Manually iterate through linked list
         System.out.println("\nBegin iteration again:");
         it = myList.getIterator();
         System.out.println("next() returns " + it.next() + " (should be A)");
@@ -52,6 +54,10 @@ public class Driver  {
         System.exit(0);
     } // end main
 
+    /********************************************
+        displayList(MyLList<String> myLList)
+        Prints each element of a linked list on a new line
+    ********************************************/
     public static void displayList(MyLList<String> myLList) {
 
         System.out.println("The list contains " + myLList.getLength() +

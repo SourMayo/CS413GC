@@ -19,7 +19,7 @@ public class OperatorSolve {
     computes and returns the values with the respective operator
     ********************************************/
     public static int compute(int value1, int value2, char operator) {
-
+        // Return answer based on values and given operator
         return switch (operator) {
             case '+' -> value1 + value2;
             case '-' -> value1 - value2;

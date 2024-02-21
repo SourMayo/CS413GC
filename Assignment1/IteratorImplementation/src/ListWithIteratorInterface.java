@@ -1,6 +1,6 @@
 /*************************************************
  File: ListWithIteratorInterface.java
- By: Geoart Corral, Karun Mehta
+ By: Geoart Corral - Starter Code -> Karun Mehta, Frank M. Carrano, Timothy M. Henry
  Date: 02.21.24
 
  Compile: javac ListWithIteratorInterface.java
