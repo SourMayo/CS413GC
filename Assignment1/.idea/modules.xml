@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/Assignment1.iml" filepath="$PROJECT_DIR$/.idea/Assignment1.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ExpressionEvaluator/ExpressionEvaluator.iml" filepath="$PROJECT_DIR$/ExpressionEvaluator/ExpressionEvaluator.iml" />
+      <module fileurl="file://$PROJECT_DIR$/IteratorImplementation/IteratorImplementation.iml" filepath="$PROJECT_DIR$/IteratorImplementation/IteratorImplementation.iml" />
+    </modules>
+  </component>
+</project>

@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="ArrayListWithIterator">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/IteratorImplementation/dist/ArrayListWithIterator.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

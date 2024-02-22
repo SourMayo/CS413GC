@@ -4,7 +4,7 @@
  Date: 02.21.24
 
  Compile: javac ListWithIteratorInterface.java
- Usage: Run through an IDE
+ Usage: Run through an IDE (Used Intellij)
  System: All
 
  Description: This program is a custom linked list
