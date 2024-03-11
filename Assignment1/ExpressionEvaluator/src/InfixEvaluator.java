@@ -4,7 +4,7 @@
  Date: 02.19.24
 
  Compile: javac InfixEvaluator.java
- Usage: Run through an IDE
+ Usage: Run through an IDE (Used Intellij)
  System: All
 
  Description: This program takes in 4 integers from the user

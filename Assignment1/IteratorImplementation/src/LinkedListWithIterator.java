@@ -1,10 +1,10 @@
 /*************************************************
  File: LinkedListWithIterator.java
- By: Geoart Corral, Karun Mehta
+ By: Geoart Corral - Starter Code -> Karun Mehta, Frank M. Carrano, Timothy M. Henry
  Date: 02.21.24
 
  Compile: javac LinkedListWithIterator.java
- Usage: Run through an IDE
+ Usage: Run through an IDE (Used Intellij)
  System: All
 
  Description: This program is a custom linked list
@@ -20,14 +20,11 @@ public class LinkedListWithIterator<E extends Comparable<? super E>> extends MyL
 
     // The current position of the iterator
     private ListNode nextNode;
-//    TODO private ListNode firstNode;
-//    TODO private ListNode lastReturnedNode;
 
     public LinkedListWithIterator(MyLList<E> LL) {
-        // Bring in the linked list
+        // Bring in the linked list and assign first node
         super();
         this.nextNode = LL.getFirstNode();
-//        TODO this.firstNode = LL.getFirstNode();
     }
 
     /********************************************
@@ -46,9 +43,8 @@ public class LinkedListWithIterator<E extends Comparable<? super E>> extends MyL
     @Override
     public E next() {
         if (hasNext()) {
-            // Save data to return and update node
+            // Save data to return, update node before returning
             E data = nextNode.getData();
-//            TODO lastReturnedNode = nextNode;
             nextNode = nextNode.getNextNode();
 
             return data;
@@ -59,37 +55,3 @@ public class LinkedListWithIterator<E extends Comparable<? super E>> extends MyL
     }
 
 }
-
-    /*
-    @Override
-    public void remove() {
-        if (lastReturnedNode == null) {
-            throw new IllegalStateException("Illegal to remove(); " +
-                    "next() must first be called");
-        } else {
-            nextNode = firstNode;
-            ListNode previousNode = null;
-            ListNode tempNode = null;
-
-            while (nextNode != null && nextNode != lastReturnedNode) {
-                previousNode = nextNode;
-                nextNode = nextNode.getNextNode();
-            }
-
-            if (nextNode == lastReturnedNode) {
-                if (previousNode == null) {
-                    nextNode = firstNode;
-                } else {
-                    previousNode.setNextNode(nextNode);
-                }
-                lastReturnedNode = null;
-
-            }
-
-        }
-
-    }
-}
-*/
-
-
