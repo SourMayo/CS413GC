@@ -1,9 +1,9 @@
 /*************************************************
- File: SavingsTransaction.java
+ File: CustomerDAO.java
  By: Geoart Corral
- Date:
+ Date: 3.12.24
 
- Compile: javac SavingsTransaction.java
+ Compile: javac CustomerDAO.java
  Usage: Run through an IDE
  System: All
 
@@ -11,7 +11,9 @@
  stages.
  *************************************************/
 
-public class SavingsTransaction {
-    // TODO: Email - Summary, Balances, Fees
+public interface CustomerDAO extends DAOInterface<Teller> {
+
+    public Customer get(int id);
 
 }
+

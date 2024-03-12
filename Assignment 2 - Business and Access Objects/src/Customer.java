@@ -1,7 +1,7 @@
 /*************************************************
  File: Customer.java
  By: Geoart Corral
- Date:
+ Date: 3.12.24
 
  Compile: javac Customer.java
  Usage: Run through an IDE
@@ -11,12 +11,11 @@
  stages.
  *************************************************/
 
+import java.util.PriorityQueue;
+
 public class Customer extends User {
     private String address;
-
-    // A customer can have multiple accounts, so this should later be stored as a list
-    private CheckingAccount checkingAccount;
-    private SavingsAccount savingsAccount;
+    private PriorityQueue<Account> accounts;
 
 
     Customer() {
@@ -25,15 +24,19 @@ public class Customer extends User {
 
     Customer(String username, String password, String email, int id) {
         super(username, password, email, id);
+        this.accounts = new PriorityQueue<>();
     }
 
     Customer(String username, String password, String email, int id, String firstName, String lastName) {
         super(username, password, email, id, firstName, lastName);
+        this.accounts = new PriorityQueue<>();
+
     }
 
     Customer(String username, String password, String email, int id, String firstName, String lastName, String address) {
         super(username, password, email, id, firstName, lastName);
         this.address = address;
+        this.accounts = new PriorityQueue<>();
     }
 
 
@@ -41,11 +44,66 @@ public class Customer extends User {
 
     public void setAddress(String address) { this.address = address; }
 
-    public CheckingAccount getCheckingAccount() { return checkingAccount; }
+    public PriorityQueue<Account> getAccountPQ() { return accounts; }
 
-    public void setCheckingAccount(CheckingAccount checkingAccount) { this.checkingAccount = checkingAccount; }
 
-    public SavingsAccount getSavingsAccount() { return savingsAccount; }
 
-    public void setSavingsAccount(SavingsAccount savingsAccount) { this.savingsAccount = savingsAccount; }
+    /********************************************
+        public void createChecking(int accountId)
+        create checking account with no balance
+    ********************************************/
+    public void createChecking(int accountId) {
+        CheckingAccount checkingAccount = new CheckingAccount(accountId, this);
+        this.accounts.add(checkingAccount);
+    }
+    /********************************************
+     public void createChecking(int accountId, double balance)
+     create checking account with balance
+     ********************************************/
+    public void createChecking(int accountId, double balance) {
+        CheckingAccount checkingAccount = new CheckingAccount(accountId, balance, this);
+        this.accounts.add(checkingAccount);
+    }
+
+    /********************************************
+     public void createSavings(int accountId)
+     create savings account with no balance
+     ********************************************/
+    public void createSavings(int accountId) {
+        SavingsAccount savingsAccount = new SavingsAccount(accountId, this);
+        this.accounts.add(savingsAccount);
+    }
+    /********************************************
+     public void createSavings(int accountId, double balance) {
+     create savings account with balance
+     ********************************************/
+    public void createSavings(int accountId, double balance) {
+        SavingsAccount savingsAccount = new SavingsAccount(accountId, balance, this);
+        this.accounts.add(savingsAccount);
+    }
+
+    /********************************************
+        public void getAccount(int accountId)
+        get a specific account given the ID
+    ********************************************/
+    public Account getAccount(int accountId) {
+        for (Account account : this.accounts) {
+            if (account.getAccountID() == accountId) {
+                return (account);
+            }
+        }
+        return null;
+    }
+    /********************************************
+        public void removeAccount(int accountId)
+        remove account given the id
+    ********************************************/
+    public void removeAccount(int accountId) {
+        for (Account account : this.accounts) {
+            if (account.getAccountID() == accountId) {
+                this.accounts.remove(account);
+                break;
+            }
+        }
+    }
 }

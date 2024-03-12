@@ -1,9 +1,9 @@
 /*************************************************
- File: CheckingTransaction.java
+ File: TransactionDAO.java
  By: Geoart Corral
- Date:
+ Date: 3.12.24
 
- Compile: javac CheckingTransaction.java
+ Compile: javac TransactionDAO.java
  Usage: Run through an IDE
  System: All
 
@@ -11,6 +11,7 @@
  stages.
  *************************************************/
 
-public class CheckingTransaction {
-    // TODO: Email - Summary, Balances, Fees
+public interface TransactionDAO extends DAOInterface<Transaction> {
+
+    public Transaction get(int id);
 }

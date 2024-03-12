@@ -1,9 +1,9 @@
 /*************************************************
- File: SecurityControl.java
+ File: DAOInterface.java
  By: Geoart Corral
  Date: 3.12.24
 
- Compile: javac SecurityControl.java
+ Compile: javac DAOInterface.java
  Usage: Run through an IDE
  System: All
 
@@ -11,6 +11,9 @@
  stages.
  *************************************************/
 
-public class SecurityControl {
-    // TODO: User auth and access control
+import java.sql.SQLException;
+import java.util.List;
+
+public interface DAOInterface<T> {
+
 }

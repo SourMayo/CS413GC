@@ -1,7 +1,7 @@
 /*************************************************
  File: CheckingAccount.java
  By: Geoart Corral
- Date:
+ Date: 3.12.24
 
  Compile: javac CheckingAccount.java
  Usage: Run through an IDE

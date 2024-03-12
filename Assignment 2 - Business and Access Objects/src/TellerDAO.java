@@ -1,9 +1,9 @@
 /*************************************************
- File: PriorityQueue.java
+ File: TellerDao.java
  By: Geoart Corral
- Date:
+ Date: 3.12.24
 
- Compile: javac PriorityQueue.java
+ Compile: javac TellerDao.java
  Usage: Run through an IDE
  System: All
 
@@ -11,6 +11,8 @@
  stages.
  *************************************************/
 
-public class PriorityQueue {
+public interface TellerDAO extends DAOInterface<Teller> {
+
+    public Teller get(int id);
 
 }

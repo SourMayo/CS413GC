@@ -1,48 +1,47 @@
 /*************************************************
- File: User.java
+ File: TellerDTO.java
  By: Geoart Corral
  Date: 3.12.24
 
- Compile: javac User.java
+ Compile: javac TellerDTO.java
  Usage: Run through an IDE
  System: All
 
  Description: This is a bank program in its early
-    stages.
+ stages.
  *************************************************/
 
-public class User {
+import java.sql.SQLException;
+
+public class TellerDTO {
     private String username;
     private String password;
+    private String email;
     private String firstName;
     private String lastName;
-    private String email;
-    private String phone;
-    private char gender;
     private int id;
 
-    // TODO : Customer shouldn't have getters and setters
 
-    User() {
-        // Default
+
+    public TellerDTO() {
+        // Default constructor
     }
 
-    User(String username, String password, String email, int id) {
+    TellerDTO(String username, String password, String email, int id) {
         this.username = username;
         this.password = password;
         this.email = email;
         this.id = id;
     }
 
-    User(String username, String password, String email, int id, String firstName, String lastName) {
-        this(username, password, email, id);
+    TellerDTO(String username, String password, String email, int id, String firstName, String lastName) {
+        this.username = username;
+        this.password = password;
+        this.email = email;
+        this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
     }
-
-    // phone and gender aren't required upon account creation
-
-
 
     public String getUsername() { return username; }
 
@@ -64,15 +63,8 @@ public class User {
 
     public void setEmail(String email) { this.email = email; }
 
-    public String getPhone() { return phone; }
-
-    public void setPhone(String phone) { this.phone = phone; }
-
-    public char getGender() { return gender; }
-
-    public void setGender(char gender) { this.gender = gender; }
-
     public int getId() { return id; }
 
     public void setId(int id) { this.id = id; }
+
 }
